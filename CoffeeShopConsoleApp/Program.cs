@@ -11,25 +11,28 @@ namespace CoffeeShopConsoleApp
         {
             Console.WriteLine("Hello Coffee Shop!");
 
-            // coffee that has milk
+            // coffees that contain milk
             List<IMilk> coffeeWithMilk = new List<IMilk>();
 
-            // a list of all the orders for coffee in the coffee shop
+            // a list containing the coffees for this order
             List<Coffee> orderList = new List<Coffee>()
             {
-                new Cortado(2),
-                new Latte(5),
-                new BlackCoffee(10),
-                new Cappucino (20)
-
+                // Construct 4 coffee objects, and add to the order list
+                new Cortado(2, Coffee.CoffeeBlend.Hermosa),
+                new Latte(5, Coffee.CoffeeBlend.Kieni),
+                new BlackCoffee(10, Coffee.CoffeeBlend.Konyu),
+                new Cappucino (20, Coffee.CoffeeBlend.Akmel)
             };
 
 
+            // Print the name, price, strength and coffee blend of each coffee in the order
             foreach (var coffeeItem in orderList)
             {
-                Console.WriteLine("the Price/Strength  of the " + coffeeItem.GetType().Name +" is : "+ coffeeItem.price() + " / " + coffeeItem.Strength());
+                    Console.WriteLine("The Price/Strength of the " + coffeeItem.GetType().Name +
+                    " blended with " + coffeeItem.MyCoffeeBlend.ToString() + " is: " +
+                    coffeeItem.price() + " / " + coffeeItem.Strength());
 
-                // Add the coffees that contain milk to the milk only coffee list
+                // Add ONLY the coffees that contain milk to the milk only coffee list
                 if(coffeeItem is IMilk)
                 {                    
                     if((coffeeItem as IMilk).MilkAmountInMLs() > 0)
@@ -39,16 +42,13 @@ namespace CoffeeShopConsoleApp
                 }
             }
 
-            // print out the names of the coffees that contain milk
-            List<string> namesOfCoffeeWithMilk = new List<string>();
-            
+            // Print out the names of the coffees that contain milk
+            Console.WriteLine("Coffees that contain milk: ");
             foreach (var coffee in coffeeWithMilk)
             {
-                namesOfCoffeeWithMilk.Add(coffee.GetType().Name);
+                Console.WriteLine(coffee.GetType().Name);
             }
 
-            Console.WriteLine("Coffees that contain milk: ");
-            namesOfCoffeeWithMilk.ForEach(Console.WriteLine);
 
         }
     }

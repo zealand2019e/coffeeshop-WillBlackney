@@ -21,10 +21,11 @@ namespace CoffeeShopConsoleApp.Models
         {
             return "Medium";
         }
-        public Cappucino(int discAmount) : base(discAmount)
+        public Cappucino(int discAmount, CoffeeBlend blend) : base(discAmount, blend)
         {
             DiscountAmount = discAmount;
+            MyCoffeeBlend = blend;
         }
     }
 }
-}
+

@@ -14,26 +14,35 @@ namespace CoffeeShopConsoleApp
         /// It's possible to override this method, beacuse it is virtual 
         /// </summary>
         /// <returns>20 dkr</returns>
+        public enum CoffeeBlend { None, Kieni, Konyu, Hermosa, Akmel }
+
         public virtual int price()
         {
             return 20 - DiscountAmount;
-        }
-
-        public int discountAmount;
+        }        
 
         public abstract string Strength();
 
+        public int discountAmount;
         public int DiscountAmount
         {
             get { return discountAmount; }
             set { discountAmount = value; }
         }
 
+        public CoffeeBlend myCoffeeBlend;
+        public CoffeeBlend MyCoffeeBlend
+        {
+            get { return myCoffeeBlend; }
+            set { myCoffeeBlend = value; }
+        }
+
         // Constructor
 
-        public Coffee(int discAmount)
+        public Coffee(int discAmount, CoffeeBlend blend)
         {
-            DiscountAmount = discountAmount;            
+            DiscountAmount = discountAmount;
+            MyCoffeeBlend = blend;
         }
 
     }

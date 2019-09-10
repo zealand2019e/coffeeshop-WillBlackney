@@ -22,9 +22,10 @@ namespace CoffeeShopConsoleApp.Models
             return "Weak";
         }
 
-        public Latte(int discAmount) : base(discAmount)
+        public Latte(int discAmount, CoffeeBlend blend) : base(discAmount, blend)
         {
             DiscountAmount = discAmount;
+            MyCoffeeBlend = blend;
         }
 
 

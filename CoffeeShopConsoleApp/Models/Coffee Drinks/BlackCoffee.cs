@@ -15,9 +15,10 @@ namespace CoffeeShopConsoleApp.Models
             return "Strong";
         }
 
-        public BlackCoffee(int discAmount) : base(discAmount)
+        public BlackCoffee(int discAmount, CoffeeBlend blend) : base(discAmount, blend)
         {
             DiscountAmount = discAmount;
+            MyCoffeeBlend = blend;
         }
     }
 }

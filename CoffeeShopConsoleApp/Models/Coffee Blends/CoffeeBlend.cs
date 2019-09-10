@@ -4,7 +4,8 @@ using System.Text;
 
 namespace CoffeeShopConsoleApp.Models.Coffee_Blends
 {
-    class CoffeeBlend
+    public class CoffeeBlend
     {
+
     }
 }
